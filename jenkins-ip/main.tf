@@ -16,5 +16,20 @@ resource "aws_route53_record" "jenkins" {
   type    = "A"
   zone_id = "Z06848581UD2LTM8TKQW6"
   records = [data.aws_instance.instance.public_ip]
-  ttl = 10
+  ttl     = 10
 }
+
+data "aws_instance" "artifactory" {
+  instance_id = "i-0bbf2377f43b7d1c9"
+}
+
+resource "aws_route53_record" "artifactory" {
+  name    = "artifactory.devops155.online"
+  type    = "A"
+  zone_id = "Z06848581UD2LTM8TKQW6"
+  records = [data.aws_instance.artifactory.public_ip]
+  ttl     = 10
+}
+
+
+
