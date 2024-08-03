@@ -11,7 +11,7 @@ data "aws_instance" "instance" {
   instance_id = "i-0d8628c551b4ca7a9"
 }
 
-resource "aws_route53_records" "jenkins" {
+resource "aws_route53_record" "jenkins" {
   name      = "jenkins.devops155.online"
   type      = "A"
   zone_id   = "Z06848581UD2LTM8TKQW6"
